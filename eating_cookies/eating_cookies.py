@@ -6,8 +6,8 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 
-# 0(n) - Linear when using memcache. 
-# 0(2^n) - when not using memcache
+# 0(n) - Linear - when using memcache. 
+# 0(3^n) - Exponential Time - when not using memcache since it calles recursion function 3 times
 
 # For memchache you usually want to implement a dict outside the function
 # For the dict then, memchase[n] would be the key, outcome would be value
@@ -27,8 +27,7 @@ def eating_cookies(n, memcache=None):
     return 2
 
   # calculate 
-  output = int(eating_cookies(n-1, memcache) + eating_cookies(n-2, memcache) + eating_cookies(n-3, memcache))
-  # set each value to memcache of n as it recurse
+  output = int(eating_cookies(n-1, memcache) + eating_cookies(n-2, memcache) + eating_cookies(n-3, memcache)) # O(3^n).
   memcache[n] = output
   print("memcache", memcache)
   return output
