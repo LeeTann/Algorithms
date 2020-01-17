@@ -11,25 +11,26 @@ def find_max_profit(prices):
 
   # Loop thru the array with first pointer and get all values
   for i in range(len(prices)):
-    print("i varible =", prices[i])
 
     # Loop thru the array again with second pointer to get second values to compare
     for j in range(i + 1, len(prices)):
-      print("j variable", prices[j])
 
       # Get the difference/current profit which is second pointer minus first pointer
       current_profit = prices[j] - prices[i]
-      print("current profit =", current_profit)
+      print("\ncurrent profit =", current_profit)
 
       # If current profit > max profit then set max profit = current profit
       if current_profit > max_profit:
         print(f"price_j {prices[j]} - price i {prices[i]}")
         max_profit = current_profit
         print("new max profit = ", max_profit)
+      else:
+        print(f"{current_profit} is not greater than {max_profit}")
 
   return max_profit
   
-print(find_max_profit([1050, 270, 1540, 3800, 2])) 
+print(find_max_profit([10, 7, 5, 8, 11, 9])) 
+
 
 if __name__ == '__main__':
   # This is just some code to accept inputs from the command line
